@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ews-client/shared/constants": ["libs/shared/constants/src/index.ts"],
       "@ews-client/shared/error-interceptor": [
         "libs/shared/error-interceptor/src/index.ts"
       ],

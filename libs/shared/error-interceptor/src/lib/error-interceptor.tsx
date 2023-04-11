@@ -9,7 +9,6 @@ interface IErrorInterceptorProps {
 interface State {
   hasError: boolean,
   stackErrors: string,
-
 }
 
 export class ErrorInterceptor extends Component<IErrorInterceptorProps, State> {

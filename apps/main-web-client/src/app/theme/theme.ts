@@ -58,6 +58,13 @@ const globalTheme: ThemeOptions = {
 }
 
 const lightTheme: ThemeOptions = {
+  palette: {
+    text: {
+      primary: '#173A5E',
+      secondary: '#46505A',
+    },
+  },
+
   ...globalTheme
 }
 
@@ -67,7 +74,7 @@ const darkTheme: ThemeOptions = {
     background: {
       default: '#607d8b',
       paper: '#607d8b',
-    }
+    },
   },
   ...globalTheme
 }

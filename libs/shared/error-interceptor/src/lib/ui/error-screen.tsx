@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import { Accordion, AccordionDetails, AccordionSummary } from '@ews-client/shared/ui';
+import { Accordion, AccordionDetails, AccordionSummary, RouterLink } from '@ews-client/shared/ui';
 import { PropsWithChildren } from 'react';
+import { ErrorContainer } from './components/error-container';
+import { RouteApp } from '@ews-client/shared/constants';
 
 interface IErrorScreenProps {
   componentName: string;
@@ -8,19 +10,29 @@ interface IErrorScreenProps {
 }
 
 export default function ErrorScreen(props: PropsWithChildren<IErrorScreenProps>): JSX.Element {
-  console.log('stackErrors',props.stackErrors.toString())
   return(
-    <Box>
-      :(
-      <Typography>Ошибка в компонете: {props.componentName}</Typography>
+    <ErrorContainer>
+      <Box sx={{ display: 'flex', gap: 2 }}>
+        <Typography variant='h2' sx={{ color: 'text.primary' }}>:&nbsp;(</Typography>
+        <Box>
+          <Typography variant='h4'>Ошибка в приложении: {props.componentName}</Typography>
+          <Typography>
+            Мы уже оповестили отвественных за его работу сотрудников.
+          </Typography>
+          <Typography>
+            При повторном возникновении ошибке создайте обращение обратной связи
+          </Typography>
+        </Box>
+      </Box>
       <Accordion>
         <AccordionSummary>
-          <Typography>Stack error</Typography>
+          <Typography>stack error</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography style={{ whiteSpace: "pre-line" }}> {`${props.stackErrors}`}</Typography>
         </AccordionDetails>
       </Accordion>
-    </Box>
+      <RouterLink to={RouteApp.MAIN}>На главную</RouterLink>
+    </ErrorContainer>
   )
 }
