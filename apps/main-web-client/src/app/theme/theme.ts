@@ -1,9 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material';
-
-export enum ThemeMode {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
+import { ThemeMode } from '@ews-client/shared/constants';
 
 const globalTheme: ThemeOptions = {
   spacing: 8,

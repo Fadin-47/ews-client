@@ -1,22 +1,23 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { theme, ThemeMode } from './theme/theme';
+import { CssBaseline, StyledEngineProvider } from '@mui/material';
 import { ErrorInterceptor } from '@ews-client/shared/error-interceptor';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './router/router';
+import { ColorMode } from './theme/color-mode';
+
+
 
 export function App() {
-
-  //const [mode, setMode] = useState<ThemeMode>(ThemeMode.LIGHT);
-
   return (
     <BrowserRouter basename={process.env.NODE_ENV === 'production' ? process.env.NX_BASENAME_ROUTER_CLIENT_PROD : '/'}>
-      <ThemeProvider theme={theme(ThemeMode.LIGHT)}>
-        <CssBaseline>
-          <ErrorInterceptor componentName='App'>
-            <Router/>
-          </ErrorInterceptor>
-        </CssBaseline>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ColorMode>
+          <CssBaseline>
+            <ErrorInterceptor componentName='App'>
+              <Router/>
+            </ErrorInterceptor>
+          </CssBaseline>
+        </ColorMode>
+      </StyledEngineProvider>
     </BrowserRouter>
   );
 }

@@ -15,11 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ews-client/pages/layout-app": ["libs/pages/layout-app/src/index.ts"],
       "@ews-client/shared/constants": ["libs/shared/constants/src/index.ts"],
       "@ews-client/shared/error-interceptor": [
         "libs/shared/error-interceptor/src/index.ts"
       ],
-      "@ews-client/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@ews-client/shared/store": ["libs/shared/store/src/index.ts"],
+      "@ews-client/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@ews-client/widgets/header": ["libs/widgets/header/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
